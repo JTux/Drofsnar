@@ -20,7 +20,7 @@ namespace Pacman
             var checkNewLife = 0;
             var gameEvent = "";
 
-            Console.WriteLine($"{"Interaction:", -16} {"Points:",-8} {"Score:", -7} Lives:");
+            Console.WriteLine($"{"Turn:",-5} {"Interaction:", -16} {"Points:",-8} {"Score:", -7} Lives:");
             string text = System.IO.File.ReadAllText(@"pacman-sequence.txt");
             string[] words = text.Split(',');
 
@@ -45,22 +45,9 @@ namespace Pacman
                         lives--;
                         break;
                     case "vulnerableghost":
+                        newPoints = Convert.ToInt32(200 * Math.Pow(2, successiveGhostCount));
                         successiveGhostCount++;
-                        switch (successiveGhostCount)
-                        {
-                            case 1:
-                                newPoints = 200;
-                                break;
-                            case 2:
-                                newPoints = 400;
-                                break;
-                            case 3:
-                                newPoints = 800;
-                                break;
-                            case 4:
-                                newPoints = 1600;
-                                break;
-                        }
+
                         break;
                     case "cherry":
                         newPoints = 100;
@@ -94,13 +81,13 @@ namespace Pacman
 
                 if (checkNewLife > newLifeCount)
                 {
-                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Green;
                     gameEvent = "+1 Life";
                     newLifeCount++;
                     lives++;
                 }
 
-                Console.WriteLine($"{turnCount, -4} {word, -16} +{newPoints, -7} {score, -7} {lives, -5} {gameEvent}");
+                Console.WriteLine($"{turnCount, -5} {word, -16} +{newPoints, -7} {score, -7} {lives, -5} {gameEvent}");
                 if (lives == 0)
                 {
                     Console.WriteLine($"\nDead! Final score: {score}");
