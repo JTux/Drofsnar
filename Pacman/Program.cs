@@ -47,7 +47,6 @@ namespace Pacman
                     case "vulnerableghost":
                         newPoints = Convert.ToInt32(200 * Math.Pow(2, successiveGhostCount));
                         successiveGhostCount++;
-
                         break;
                     case "cherry":
                         newPoints = 100;
