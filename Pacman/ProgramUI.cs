@@ -21,7 +21,7 @@ namespace Pacman
             {
                 settings.turnCount++;
 
-                Console.ForegroundColor = ConsoleColor.White;
+                Console.ForegroundColor = settings.mainTextColor;
 
                 settings.gameEvent = "";
                 Thread.Sleep(75);
@@ -33,7 +33,7 @@ namespace Pacman
                         settings.newPoints = 10;
                         break;
                     case "invincibleghost":
-                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = settings.badEventTextColor;
                         settings.gameEvent = "-1 Life";
                         settings.lives--;
                         break;
@@ -73,7 +73,7 @@ namespace Pacman
 
                 if (settings.checkNewLife > settings.newLifeCount)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = settings.goodEventTextColor;
                     settings.gameEvent = "+1 Life";
                     settings.newLifeCount++;
                     settings.lives++;

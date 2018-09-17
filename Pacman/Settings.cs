@@ -10,11 +10,10 @@ namespace Pacman
     {
         public int score = 5000;
         public int lives = 3;
-        public int turnCount = 0;
-        public int successiveGhostCount = 0;
-        public int newPoints = 0;
-        public int newLifeCount = 0;
-        public int checkNewLife = 0;
-        public string gameEvent = "";
+        public int turnCount, successiveGhostCount, newPoints, newLifeCount, checkNewLife;
+        public string gameEvent;
+        public ConsoleColor mainTextColor = ConsoleColor.White;
+        public ConsoleColor badEventTextColor = ConsoleColor.Red;
+        public ConsoleColor goodEventTextColor = ConsoleColor.Green;
     }
 }
